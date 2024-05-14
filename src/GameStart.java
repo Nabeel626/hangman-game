@@ -1,40 +1,39 @@
-import java.sql.SQLOutput;
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class GameStart {
 
-    String[] words = {"cat", "dog", "mouse", "llama", "horse"};
+    private int lives = 8;
+    private boolean guessCorrect = false;
+
+    WordGenerator wordGenerator = new WordGenerator();
+    Scanner scanner = new Scanner(System.in);
 
     public void play() {
-        int lives = 8;
-        Scanner scanner = new Scanner(System.in);
 
-        while (true) {
+        while (!guessCorrect && lives > 0) {
             System.out.println();
             System.out.println("LIVES: " + lives);
 
-            generateWord();
+            wordGenerator.generateWord();
 
             System.out.println();
             System.out.println("INPUT LETTER: ");
-            String input = scanner.nextLine();
-            char chosenLetter = input.charAt(0);
+            char input = scanner.nextLine().charAt(0);
 
+            for(int i = 0; i < wordGenerator.characteriseRandomWord.length; i++) {
+
+                if(wordGenerator.characteriseRandomWord[i] == input) {
+                    wordGenerator.showWord[i] = input;
+
+                    System.out.println(wordGenerator.showWord);
+
+//                    guessCorrect = true;
+                }
+            }
+
+            if(!guessCorrect) {
+                lives = lives - 1;
+            }
         }
     }
-
-    private void generateWord() {
-        int randomiseTheWord = (int)(Math.random() * words.length);
-        char[] characteriseRandomWord = words[randomiseTheWord].toCharArray();
-
-        int lengthOfWord = characteriseRandomWord.length;
-        char[] showWord = new char[lengthOfWord];
-
-        System.out.println();
-        Arrays.fill(showWord, '_');
-        System.out.println(showWord);
-
-    }
-
 }
