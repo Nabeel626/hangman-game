@@ -33,7 +33,7 @@ public class GameStart {
 
         System.out.println();
         Arrays.fill(showWord, '_');
-        System.out.println(Arrays.toString(showWord));
+        System.out.println(showWord);
 
     }
 
