@@ -13,5 +13,4 @@ public class WordGenerator {
         System.out.println();
         Arrays.fill(showWord, '_');
     }
-
 }

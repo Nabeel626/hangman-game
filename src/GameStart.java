@@ -10,14 +10,15 @@ public class GameStart {
     Scanner scanner = new Scanner(System.in);
 
     public void play() {
-
         wordGenerator.generateWord();
 
         while (start) {
             if (lives == 0 || lives < 0) {
                 System.out.println();
                 System.out.println("YOU HAVE RUN OUT OF LIVES :( ");
+
                 start = false;
+
                 Menu menu = new Menu();
                 menu.state();
             }
