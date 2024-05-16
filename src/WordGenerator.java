@@ -13,4 +13,16 @@ public class WordGenerator {
         System.out.println();
         Arrays.fill(showWord, '_');
     }
+
+    public static boolean completedWord(char[] array) {
+        boolean condition = true;
+
+        for (char word : array) {
+            if (word == '_') {
+                condition = false;
+                break;
+            }
+        }
+        return condition;
+    }
 }

@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Menu {
+public class MainMenu {
 
     public void state() {
         Scanner scanner = new Scanner(System.in);
@@ -30,6 +30,7 @@ public class Menu {
 
                 case "CLOSE":
                     System.out.println("YOU CHOOSE TO CLOSE. GOODBYE!!!!");
+                    state = false;
                     System.exit(1);
                     break;
 
