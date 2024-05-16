@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class GameStart {
@@ -5,6 +6,7 @@ public class GameStart {
     private int lives = 8;
     private boolean guessCorrect = false;
     private boolean start = true;
+    private final ArrayList<String> storeLetter = new ArrayList<>();
 
     WordGenerator wordGenerator = new WordGenerator();
     Scanner scanner = new Scanner(System.in);
@@ -16,34 +18,52 @@ public class GameStart {
             if (lives == 0 || lives < 0) {
                 System.out.println();
                 System.out.println("YOU HAVE RUN OUT OF LIVES :( ");
-
                 start = false;
+                TryAgainMenu tryAgainMenu = new TryAgainMenu();
+                tryAgainMenu.tryAgain();
+            }
 
-                Menu menu = new Menu();
-                menu.state();
+            if(WordGenerator.completedWord(wordGenerator.showWord)){
+                guessCorrect = true;
+                System.out.println("CONGRATULATIONS YOU GUESSED THE WORD: " + wordGenerator.showWord);
+                TryAgainMenu tryAgainMenu = new TryAgainMenu();
+                tryAgainMenu.tryAgain();
             }
 
             System.out.println();
-            System.out.println("LIVES: " + lives);
-
+            System.out.println("CURRENT LETTERS USED: " + storeLetter);
+            System.out.print("LIVES: ");
+            for(int i = 0; i < this.lives; i++) {
+                System.out.print("❤");
+            }
+            System.out.println();
+            System.out.println();
             System.out.println(wordGenerator.showWord);
 
             System.out.println();
             System.out.println("INPUT LETTER: ");
             char input = scanner.nextLine().charAt(0);
 
-            for (int i = 0; i < wordGenerator.characteriseRandomWord.length; i++) {
+            if(storeLetter.contains(String.valueOf(input))) {
+                System.out.println("YOU HAVE ALREADY USED THIS LETTER!!!");
+                guessCorrect = false;
 
-                if (wordGenerator.characteriseRandomWord[i] == input) {
-                    wordGenerator.showWord[i] = input;
-                    guessCorrect = true;
+            } else {
+                storeLetter.add(String.valueOf(input));
+
+                for (int i = 0; i < wordGenerator.characteriseRandomWord.length; i++) {
+
+                    if (wordGenerator.characteriseRandomWord[i] == input) {
+                        wordGenerator.showWord[i] = input;
+                        guessCorrect = true;
+                    }
                 }
             }
 
             if (!guessCorrect) {
                 lives = lives - 1;
-
             }
+
             guessCorrect = false;
         }
     }
