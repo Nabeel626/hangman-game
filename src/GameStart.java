@@ -40,9 +40,11 @@ public class GameStart {
                 }
             }
 
-            if(!guessCorrect) {
+            if (!guessCorrect) {
                 lives = lives - 1;
+
             }
+            guessCorrect = false;
         }
     }
 }
