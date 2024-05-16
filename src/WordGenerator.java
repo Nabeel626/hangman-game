@@ -2,7 +2,7 @@ import java.util.Arrays;
 
 public class WordGenerator {
 
-    public String[] words = {"cat", "dog", "mouse", "llama", "horse"};
+    public String[] words = {"cat", "dog", "mouse", "llama", "horse", "giraffe"};
 
     protected int randomiseTheWord = (int)(Math.random() * words.length);
     protected char[] characteriseRandomWord = words[randomiseTheWord].toCharArray();
@@ -13,5 +13,4 @@ public class WordGenerator {
         System.out.println();
         Arrays.fill(showWord, '_');
     }
-
 }
