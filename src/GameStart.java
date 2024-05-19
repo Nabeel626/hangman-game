@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class GameStart {
@@ -6,12 +7,23 @@ public class GameStart {
     private int lives = 8;
     private boolean guessCorrect = false;
     private boolean start = true;
+    public String chosenMode = "";
     private final ArrayList<String> storeLetter = new ArrayList<>();
 
-    WordGenerator wordGenerator = new WordGenerator();
     Scanner scanner = new Scanner(System.in);
 
-    public void play() {
+    public void play(String chosen) {
+        chosenMode = chosen;
+        WordGenerator wordGenerator = new WordGenerator();
+
+        if(chosenMode == "easy") {
+            wordGenerator.getDifficultyInput(chosenMode);
+        } else if (chosenMode == "medium") {
+            wordGenerator.getDifficultyInput(chosenMode);
+        } else {
+            wordGenerator.getDifficultyInput(chosenMode);
+        }
+
         wordGenerator.generateWord();
 
         while (start) {
@@ -25,12 +37,11 @@ public class GameStart {
 
             if(WordGenerator.completedWord(wordGenerator.showWord)){
                 guessCorrect = true;
-                System.out.println("CONGRATULATIONS YOU GUESSED THE WORD: " + wordGenerator.showWord);
+                System.out.println("CONGRATULATIONS YOU GUESSED THE WORD: " + Arrays.toString(wordGenerator.showWord));
                 TryAgainMenu tryAgainMenu = new TryAgainMenu();
                 tryAgainMenu.tryAgain();
             }
 
-            System.out.println();
             System.out.println("CURRENT LETTERS USED: " + storeLetter);
             System.out.print("LIVES: ");
             for(int i = 0; i < this.lives; i++) {
@@ -46,6 +57,7 @@ public class GameStart {
 
             if(storeLetter.contains(String.valueOf(input))) {
                 System.out.println("YOU HAVE ALREADY USED THIS LETTER!!!");
+                System.out.println();
                 guessCorrect = false;
 
             } else {

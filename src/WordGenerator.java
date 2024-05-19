@@ -2,12 +2,39 @@ import java.util.Arrays;
 
 public class WordGenerator {
 
-    public String[] words = {"cat", "dog", "mouse", "llama", "horse", "giraffe"};
+    final String[] easyWords = {"cat", "dog"};
+    final String[] mediumWords = {"mouse", "llama", "horse"};
+    final String[] hardWords = {"hippopotamus"};
 
-    protected int randomiseTheWord = (int)(Math.random() * words.length);
-    protected char[] characteriseRandomWord = words[randomiseTheWord].toCharArray();
-    protected int lengthOfWord = characteriseRandomWord.length;
-    protected char[] showWord = new char[lengthOfWord];
+    protected int randomiseTheWord;
+    protected char[] characteriseRandomWord;
+    protected int lengthOfWord;
+    protected char[] showWord;
+
+    String difficulty;
+
+    public void getDifficultyInput(String checkDifficulty) {
+        difficulty = checkDifficulty;
+
+        if(difficulty == "easy") {
+            randomiseTheWord = (int)(Math.random() * easyWords.length);
+            characteriseRandomWord = easyWords[randomiseTheWord].toCharArray();
+            lengthOfWord = characteriseRandomWord.length;
+            showWord = new char[lengthOfWord];
+
+        } else if (difficulty == "medium") {
+            randomiseTheWord = (int)(Math.random() * mediumWords.length);
+            characteriseRandomWord = mediumWords[randomiseTheWord].toCharArray();
+            lengthOfWord = characteriseRandomWord.length;
+            showWord = new char[lengthOfWord];
+
+        } else if (difficulty == "hard") {
+            randomiseTheWord = (int)(Math.random() * hardWords.length);
+            characteriseRandomWord = hardWords[randomiseTheWord].toCharArray();
+            lengthOfWord = characteriseRandomWord.length;
+            showWord = new char[lengthOfWord];
+        }
+    }
 
     public void generateWord() {
         System.out.println();
