@@ -3,6 +3,7 @@ import java.util.Scanner;
 public class MainMenu {
 
     public void state() {
+
         Scanner scanner = new Scanner(System.in);
         boolean state = true;
 
@@ -23,15 +24,15 @@ public class MainMenu {
             switch (choice) {
                 case "PLAY":
                     System.out.println("YOU CHOSE TO PLAY!!!");
-                    GameStart startGame = new GameStart();
-                    startGame.play();
+                    ChooseDifficultyMenu chooseDifficultyMenu = new ChooseDifficultyMenu();
+                    chooseDifficultyMenu.chooseDifficulty();
                     state = false;
                     break;
 
                 case "CLOSE":
                     System.out.println("YOU CHOOSE TO CLOSE. GOODBYE!!!!");
                     state = false;
-                    System.exit(1);
+                    System.exit(2);
                     break;
 
                 default:

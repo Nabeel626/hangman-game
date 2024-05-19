@@ -21,8 +21,8 @@ public class TryAgainMenu {
 
             switch (choose) {
                 case "y":
-                    GameStart startGame = new GameStart();
-                    startGame.play();
+                    ChooseDifficultyMenu chooseDifficultyMenu = new ChooseDifficultyMenu();
+                    chooseDifficultyMenu.chooseDifficulty();
                     state = false;
                     break;
 
