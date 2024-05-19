@@ -42,6 +42,7 @@ public class GameStart {
                 tryAgainMenu.tryAgain();
             }
 
+            System.out.println();
             System.out.println("CURRENT LETTERS USED: " + storeLetter);
             System.out.print("LIVES: ");
             for(int i = 0; i < this.lives; i++) {
