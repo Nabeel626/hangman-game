@@ -7,7 +7,6 @@ public class GameStart {
     private int lives = 8;
     private boolean guessCorrect = false;
     private boolean start = true;
-    private boolean validationCheck = true;
     public String chosenMode = "";
     private char input;
     private final ArrayList<String> storeLetter = new ArrayList<>();
@@ -29,7 +28,8 @@ public class GameStart {
         wordGenerator.generateWord();
 
         while (start) {
-            drawHangman(lives);
+            DrawHangman drawHangman = new DrawHangman();
+            drawHangman.drawHangmanBoard(lives);
 
             if (lives == 0 || lives < 0) {
                 System.out.println();
@@ -82,81 +82,6 @@ public class GameStart {
             }
 
             guessCorrect = false;
-        }
-    }
-
-    private static void drawHangman(int lives) {
-        if(lives == 7) {
-            System.out.println("    |");
-            System.out.println("    |");
-            System.out.println("    |");
-            System.out.println("    |");
-            System.out.println("    |");
-            System.out.println("    |");
-            System.out.println("____|____");
-
-        } else if(lives == 6) {
-            System.out.println("    |----------");
-            System.out.println("    |/");
-            System.out.println("    |");
-            System.out.println("    |");
-            System.out.println("    |");
-            System.out.println("    |");
-            System.out.println("____|____");
-
-        } else if(lives == 5) {
-            System.out.println("    |----------");
-            System.out.println("    |/    O");
-            System.out.println("    |");
-            System.out.println("    |");
-            System.out.println("    |");
-            System.out.println("    |");
-            System.out.println("____|____");
-
-        } else if(lives == 4) {
-            System.out.println("    |----------");
-            System.out.println("    |/   O");
-            System.out.println("    |    |");
-            System.out.println("    |");
-            System.out.println("    |");
-            System.out.println("    |");
-            System.out.println("____|____");
-
-        } else if(lives == 3) {
-            System.out.println("    |----------");
-            System.out.println("    |/   O");
-            System.out.println("    |   -|");
-            System.out.println("    |");
-            System.out.println("    |");
-            System.out.println("    |");
-            System.out.println("____|____");
-
-        } else if(lives == 2) {
-            System.out.println("    |----------");
-            System.out.println("    |/   O");
-            System.out.println("    |   -|-");
-            System.out.println("    |");
-            System.out.println("    |");
-            System.out.println("    |");
-            System.out.println("____|____");
-
-        } else if(lives == 1) {
-            System.out.println("    |----------");
-            System.out.println("    |/   O");
-            System.out.println("    |   -|-");
-            System.out.println("    |   /");
-            System.out.println("    |");
-            System.out.println("    |");
-            System.out.println("____|____");
-
-        } else if(lives == 0){
-            System.out.println("    |----------");
-            System.out.println("    |/   O");
-            System.out.println("    |   -|-");
-            System.out.println("    |   / \\");
-            System.out.println("    |");
-            System.out.println("    |");
-            System.out.println("____|____");
         }
     }
 }
