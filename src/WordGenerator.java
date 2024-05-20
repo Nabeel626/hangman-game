@@ -1,10 +1,6 @@
 import java.util.Arrays;
 
-public class WordGenerator {
-
-    final String[] easyWords = {"cat", "dog"};
-    final String[] mediumWords = {"mouse", "llama", "horse"};
-    final String[] hardWords = {"hippopotamus"};
+public class WordGenerator extends storeWords {
 
     protected int randomiseTheWord;
     protected char[] characteriseRandomWord;
