@@ -21,6 +21,7 @@ public class TryAgainMenu {
 
             switch (choose) {
                 case "y":
+                    System.out.println("YOU ARE TRYING AGAIN, NICE!!!");
                     ChooseDifficultyMenu chooseDifficultyMenu = new ChooseDifficultyMenu();
                     chooseDifficultyMenu.chooseDifficulty();
                     state = false;
