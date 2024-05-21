@@ -16,16 +16,17 @@ To run this app, follow the steps below:
 
 1. Clone the repository to your local machine:
 
-    -   Using GIT bash
+ -   Using GIT bash
       - git clone https://github.com/(your-username)/hangman-game.git
 
 2. Open the project directory in your code editor or you can type:
 
-    -   Using IntelliJ
+  -   Using IntelliJ
       - File new, open existing project
 
 3. Build the project:
-    -  Go to 'Main' file and run the project
+   
+  -  Go to 'Main' file and run the project
 
 ## License
 
